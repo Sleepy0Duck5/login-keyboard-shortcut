@@ -2,7 +2,7 @@
 // @name         login-keyboard-shortcut
 // @name:ko      login-keyboard-shortcut
 // @namespace    https://github.com/Sleepy0Duck5/login-keyboard-shortcut
-// @version      1.5.1
+// @version      1.5.2
 // @homepageURL  https://github.com/Sleepy0Duck5/login-keyboard-shortcut
 // @downloadURL  https://raw.githubusercontent.com/Sleepy0Duck5/login-keyboard-shortcut/main/login-keyboard-shortcut.user.js
 // @updateURL    https://raw.githubusercontent.com/Sleepy0Duck5/login-keyboard-shortcut/main/login-keyboard-shortcut.user.js
@@ -22,6 +22,7 @@
     'use strict';
 
     const HOTKEY_LABEL = 'Ctrl+Shift+U';
+    const REPOSITORY_URL = 'https://github.com/Sleepy0Duck5/login-keyboard-shortcut';
     const STORAGE_KEY = 'login-shortcut-pending-navigation';
     const TOAST_ID = 'login-shortcut-result-toast';
     const MODAL_ID = 'login-shortcut-info-modal';
@@ -37,7 +38,7 @@
     function getScriptInfo() {
         return {
             name: globalThis.GM?.info?.script?.name || 'login-keyboard-shortcut',
-            version: globalThis.GM?.info?.script?.version || '1.5.1'
+            version: globalThis.GM?.info?.script?.version || '1.5.2'
         };
     }
 
@@ -265,6 +266,8 @@
                 }
                 dt { color: #9399a6; }
                 dd { margin: 0; color: #fff; font-weight: 600; overflow-wrap: anywhere; }
+                a { color: #78b7ff; text-decoration: none; }
+                a:hover, a:focus-visible { text-decoration: underline; }
                 @keyframes fade-in { from { opacity: 0; } }
                 @keyframes modal-in { from { opacity: 0; transform: translateY(8px) scale(.98); } }
             </style>
@@ -277,6 +280,8 @@
                     <dl>
                         <dt>스크립트 이름</dt><dd>${name}</dd>
                         <dt>스크립트 버전</dt><dd>${version}</dd>
+                        <dt>GitHub</dt>
+                        <dd><a href="${REPOSITORY_URL}" target="_blank" rel="noopener noreferrer">${REPOSITORY_URL}</a></dd>
                     </dl>
                 </section>
             </div>
@@ -459,4 +464,3 @@
 
     void reportCompletedNavigation();
 })();
-
